@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+	Login
+{% endblock %}
+
+
+
+{% block content %}
+	<h2>Login Sekarang</h2>
+	<form method="post" class="custom-form">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" name="button">Login</button>
+
+		<a href="{% url 'password_reset' %}">Lupa Password?</a>
+	</form>
+{% endblock %}
+

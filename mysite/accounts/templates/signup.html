@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+	Register
+{% endblock %}
+
+
+
+{% block content %}
+	<h2>Daftar Sekarang</h2>
+	<form method="post" class="custom-form">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" name="button">Bikin Akun</button>
+	</form>
+{% endblock %}
+

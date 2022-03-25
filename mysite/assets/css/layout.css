@@ -1,0 +1,15 @@
+body{
+	font-family: sans-serif;
+	background: lightgrey;
+	width: 70%;
+	margin: auto;
+}
+
+.is-error, .custom-form .errorlist{
+	color: red;
+}
+
+.custom-form ul, .helptext{
+	display: block;
+	color: grey;
+}
