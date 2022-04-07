@@ -9,6 +9,9 @@ from . import forms
 def welcome(request):
 	return render(request, 'welcome.html')
 
+def usermanagement(request):
+	return render(request, 'usermanagement.html')
+
 
 @login_required
 def contact(request):
@@ -18,13 +21,13 @@ def contact(request):
 		if form.is_valid():
 			#Mengirim email
 			send_mail(
-				'dari kontak website',
+				'Dari Kontak Rekan',
 				request.POST['subject'],
-				request.POST['email'],
-				['sk@sk.sk'],
+				request.user.email,
+				[request.POST['email']],
 				fail_silently=False
 			)
-			messages.success(request, 'berhasil kirim email!')
+			messages.success(request, 'Email sent successfully!')
 			return HttpResponseRedirect(reverse('contact'))
 
 	return render(request, 'contact.html', {'form': form})

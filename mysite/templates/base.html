@@ -5,20 +5,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Halaman Blog</title>
+	<title>STRAIGHT</title>
 	<link rel="stylesheet" href="{% static 'css/layout.css' %}">
 </head>
 <body>
 	<h1>{% block title%}{% endblock %}</h1>
 	<nav>
 		<a href="/"> Home</a>
-		<a href="{% url 'blogs:index' %}">Blog</a>
-		<a href="/kontak">Contact</a>
 
 		{% if user.is_authenticated %}
+			<a href="{% url 'blogs:index' %}">Task</a>
+			<a href="{% url 'usermanagement' %}">User Management</a>
+			<a href="/kontak">Contact</a>
 			<a href="{% url 'logout' %}">Logout</a>
 		{% else %}
-			<a href="{% url 'login' %}">Login</a>
+			<a href="{% url 'login' %}">Sign in</a>
 			<a href="{% url 'signup' %}">Signup</a>
 		{% endif %}
 	</nav>
@@ -32,7 +33,6 @@
 	{% endif %}
 
 	<hr>
-	<br>
 
 
 	{% block content %}{% endblock %}

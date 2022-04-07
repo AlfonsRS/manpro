@@ -1,20 +1,42 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-	Login
+	<center>Sign In</center>
 {% endblock %}
 
 
-
 {% block content %}
-	<h2>Login Sekarang</h2>
 	<form method="post" class="custom-form">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit" name="button">Login</button>
-
-		<a href="{% url 'password_reset' %}">Lupa Password?</a>
+		<pre style="text-align: center;">
+			<svg width="300" height="200">
+				<polygon points="100,10 40,198 190,78 10,78 160,198"
+				style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />.
+			  </svg>
+			{% csrf_token %}
+			{{ form.as_p }}
+			<a href="{% url 'password_reset' %}">Lupa Password?</a>
+		</pre>
+		<div class="wrapper">
+			<button type="submit" name="button">Sign in</button>
+		</div>
 	</form>
+
+
+<!-- <pre style="text-align: center;">
+	<form action="user.php" method="post">
+		<pre>No Induk = <input type="text" name="no_induk" placeholder="No Induk"> 
+
+Name     = <input type="text" name="name" placeholder="Name"> 
+
+
+<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" value="">
+<input type="text" id="login" class="fadeIn second" name="email" placeholder="email" </span>
+
+Role    = <input type="text" name="role" placeholder="Role">
+
+Email    = <input type="text" name="email" placeholder="Email"> </pre>
+		<input type="submit" value="ADD">
+	</form>
+</pre> -->
 {% endblock %}
 

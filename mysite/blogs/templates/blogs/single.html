@@ -11,7 +11,7 @@
 	<p>{{blog.desc}}</p>
 	<p>{{blog.created_at}}</p>
 	<hr>
-	<h3>komentar</h3>
+	<h2>Komentar</h2>
 	{% if user.is_authenticated %}
 		<form action="{% url 'blogs:comment' blog.id %}" method="post">
 			{% csrf_token %}
@@ -19,7 +19,7 @@
 			<input type="submit" value="Kirim Komentar">
 		</form>
 	{% else %}
-		<p>Kamu harus login untuk komentar </p>
+		<b><p>Kamu harus login untuk komentar </p> </b>
 	{% endif %}
 	{% for comment in blog.comment_set.all %}
 		<p> {{comment.desc}}
