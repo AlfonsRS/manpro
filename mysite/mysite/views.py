@@ -12,6 +12,15 @@ def welcome(request):
 def usermanagement(request):
 	return render(request, 'usermanagement.html')
 
+def notif(request):
+	return render(request, 'notif.html')
+	
+def teammanagement(request):
+	return render(request, 'teammanagement.html')
+
+def profile(request):
+	return render(request, 'profile.html')
+
 
 @login_required
 def contact(request):

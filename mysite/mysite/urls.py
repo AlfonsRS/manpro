@@ -10,6 +10,9 @@ urlpatterns = [
     path('kontak/', views.contact, name='contact'),
     path('accounts/', include('accounts.urls', namespace='')),
     path('usermanagement/', views.usermanagement, name='usermanagement'),
+    path('notif/', views.notif, name='notif'),
+    path('teammanagement/', views.teammanagement, name='teammanagement'),
+    path('profile/', views.profile, name='profile'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
