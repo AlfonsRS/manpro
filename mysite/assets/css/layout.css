@@ -1,8 +1,9 @@
 body{
 	font-family: sans-serif;
-	background: lightgrey;
-	width: 70%;
+	background: lightgray;
+	width: 100%;
 	margin: auto;
+	transition: background-color .5s;
 }
 
 .is-error, .custom-form .errorlist{
@@ -23,19 +24,147 @@ body{
     top: 50%;
 }
 
+  
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: white;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+  
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+  
+.sidenav a:hover {
+	color: black;
+}
+  
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+  
+#main {
+	transition: margin-left .5s;
+}
+  
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+
+.topnav {
+	padding: 16px;
+	overflow: hidden;
+	background-color: white;
+}
+  
+  /* .allcontent {
+	padding: 20px;
+  } */
+
+.logodashboard{
+	  display: inline;
+}
+
+#homesquare {
+	float: left;
+	border-radius: 25px;
+	background: white;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 400px;
+	height: 400px;  
+}
+
+.buttons {
+	background-color: rgb(0, 109, 109);
+	border: none;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 12px;
+	margin:0 auto;
+    display:block;
+}
+
+#projectsquare {
+	float: left;
+	padding: 20px;
+	background: white;
+	margin-top: 40px;
+	margin-left: 40px;
+	width: 400px;
+	height: 400px;   
+	box-shadow: 3px 5px gray;
+}
+
+.buttonsproject {
+	background-color: lightgray;
+	border: none;
+	color: black;
+	padding-left:  80px;
+	padding-right: 80px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 6px;
+	margin:0 auto;
+    display:block;
+}
+
+#projectsquare2 { 
+	padding: 10px;
+	margin-bottom: 10px;
+	background: rgb(221, 221, 221);
+	box-shadow: 3px 5px rgb(184, 184, 184);
+}
 
 table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-  }
+	width: 100%; 
+	table-layout: fixed;
+}
   
-  td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-  }
+td, th {
+	text-align: center;
+	padding-bottom: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
   
-  tr:nth-child(even) {
-	background-color: #dddddd;
-  }
+#projectsquare3 {
+	border-radius: 25px;
+	padding: 5px;
+	color: white;
+}
+  
+#addproject {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+}

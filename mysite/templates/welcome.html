@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-	Scheduling and Timeline Reminder Application for Industrial Goods Handling Task (STRAIGHT)
+	Home
 	{% if messages %}
 	<ul class="messages">
 		{% for message in messages %}
@@ -15,12 +14,32 @@
 
 
 {% block content %}
-	<h1>Home Screen</h1>
 	{% if user.is_authenticated %}
-		<h2>Halo {{request.user.username}}!</h2>
+		<div id="homesquare">
+			<div id="time" style="text-align: center; font-size: 48pt; padding-top: 110px;"></div>
+			<br>
+			<div id="day" style="text-align: center; font-size: 24pt;"></div>
+			<div id="date" style="text-align: center; font-size: 24pt;"></div>
+		</div>
+		<div id="homesquare">
+			<h1 style="text-align: center; font-size: 32pt; padding-top: 40px;">Current Team</h1>
+			<ol style="font-size: 24pt; margin-left: 40px;">
+				<li>John Doe</li>
+				<li>Jane Doe</li>
+				<li>John Smith</li>
+				<li>Tom Harry</li>
+			</ol>
+		</div>
+		<div id="homesquare">
+			<h1 style="text-align: center; font-size: 40pt; padding-top: 40px;">You have XX new notifications</h1>
+			<a href="" style="text-decoration: none;"><button class="buttons">Go To Notifications</button></a>
+		</div>
+		<div id="homesquare">
+			<h1 style="text-align: center; font-size: 40pt; padding-top: 40px;">You have XX incoming projects</h1>
+			<a href="{% url 'blogs:index' %}" style="text-decoration: none;"><button class="buttons" >Go To Projects</button></a>
+		</div>
 	{% else %}
 		<p>STRAIGHT adalah <i>website</i> yang digunakan untuk melakukan <i>scheduling</i> dan <i>reminder</i> tugas.</p>
 		<p>Silahkan <b><i>login</i></b> atau <b><i>signup</i></b> terlebih dahulu untuk dapat melihat tugas.</p>
 	{% endif %}
 {% endblock %}
-
