@@ -50,7 +50,7 @@ def signup(request):
 # 	return render(request, 'change_password.html', {'form': form})
 	
 def activate(request, uidb64, token):
-	uid = force_text(urlsafe_base64_decode(uidb64).decode())
+	uid = force_str(urlsafe_base64_decode(uidb64).decode())
 	user = User.objects.get(pk=uid)
 	if user is not None and account_activation_token.check_token(user, token):
 		user.is_active = True
