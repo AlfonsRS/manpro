@@ -1,6 +1,6 @@
 body{
 	font-family: sans-serif;
-	background: lightgray;
+	background: rgb(232, 232, 232);
 	width: 100%;
 	margin: auto;
 	transition: background-color .5s;
@@ -13,10 +13,6 @@ body{
 .custom-form ul, .helptext{
 	display: block;
 	color: grey;
-}
-
-.wrapper {
-    text-align: center;
 }
 
 .button {
@@ -35,7 +31,7 @@ body{
 	background-color: white;
 	overflow-x: hidden;
 	transition: 0.5s;
-	padding-top: 60px;
+	padding-top: 20px;
 }
   
 .sidenav a {
@@ -145,12 +141,12 @@ body{
 	box-shadow: 3px 5px rgb(184, 184, 184);
 }
 
-table {
+table.tableproject {
 	width: 100%; 
 	table-layout: fixed;
 }
   
-td, th {
+table.tableproject td,table.tableproject th {
 	text-align: center;
 	padding-bottom: 8px;
 	padding-left: 4px;
@@ -204,3 +200,68 @@ td, th {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+#notif_square {
+	border-radius: 25px;
+	background: white;
+	margin: auto;
+	margin-top: 40px;
+	width: 95%;
+	height: 200px;  
+}
+
+table.tabletm {
+	width: 100%; 
+	table-layout: fixed;
+}
+  
+table.tabletm td,table.tabletm th {
+	border: none;
+	font-size: 25pt;
+	text-align: left;
+	padding-bottom: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#tm_square {
+	border-radius: 25px;
+	background: white;
+	margin: auto;
+	margin-top: 40px;
+	width: 95%;
+	height: 200px;  
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	padding: 20px;
+}
+
+input[type=text].inputtm {
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 12px 10px;
+	display: inline-block;
+	background-color: rgb(230, 230, 230);
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+  
+#tm_square2 {
+	border-radius: 25px;
+	background: white;
+	margin: auto;
+	margin-top: 40px;
+	width: 95%;
+	height: 100%;  
+	padding: 20px;
+}
+
+#tm_square3 {
+	border-radius: 25px;
+	background: rgb(246, 246, 246);
+	width: 45%;
+	height: 100%;  
+	padding: 20px;
+	box-shadow: 3px 5px gray;
+}
+

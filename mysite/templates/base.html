@@ -12,8 +12,6 @@
 	<!-- FULL TENTANG SIDEBAR -->
 	<nav>
 		<div id="mySidenav" class="sidenav">
-
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<b><p style="float: right; padding-right: 24px; font-size: 25pt;">Dashboard</p></b>
 			<img src="{% static 'images/logostraightbulet.png' %}" style="padding-top: 16px; padding-left: 30px; display:inline-block;">
 			<h1 style="padding-left: 30px; padding-top: 30px;">MAIN</h1>
@@ -46,7 +44,7 @@
 	<div id="main">
 		
 		<div class="topnav">
-			<span style="font-size:30px;cursor:pointer;float: left; padding-top: 16px;" onclick="openNav()">&#9776;</span>
+			<span style="font-size:30px;cursor:pointer;float: left; padding-top: 16px;" onclick="openNav()" class="sidenavopened">&#9776;</span>
 			<h1 style="float: left; padding-left: 16px; color: rgb(0, 109, 109);">{% block title%}{% endblock %}</h1>
 			
 			{% if user.is_authenticated %}
@@ -88,7 +86,7 @@
 	function closeNav() {
 		document.getElementById("mySidenav").style.width = "0";
 		document.getElementById("main").style.marginLeft= "0";
-		document.body.style.backgroundColor = "lightgray";
+		document.body.style.backgroundColor = "rgb(232, 232, 232)";
 	}
 
 	function startTime() {
@@ -142,6 +140,9 @@
 					openDropdown.classList.remove('show');
 				}
 			}
+		}
+		if (!event.target.matches('.sidenavopened')) {
+			closeNav();
 		}
 	}
 

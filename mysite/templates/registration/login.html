@@ -7,18 +7,10 @@
 
 {% block content %}
 	<form method="post" class="custom-form">
-		<pre style="text-align: center;">
-			<svg width="300" height="200">
-				<polygon points="100,10 40,198 190,78 10,78 160,198"
-				style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />.
-			  </svg>
-			{% csrf_token %}
-			{{ form.as_p }}
-			<a href="{% url 'password_reset' %}">Lupa Password?</a>
-		</pre>
-		<div class="wrapper">
-			<button type="submit" name="button">Sign in</button>
-		</div>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<a href="{% url 'password_reset' %}">Lupa Password?</a>
+		<button type="submit" name="button">Sign in</button>
 	</form>
 
 
