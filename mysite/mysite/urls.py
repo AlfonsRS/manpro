@@ -13,6 +13,7 @@ urlpatterns = [
     path('notif/', views.notif, name='notif'),
     path('teammanagement/', views.teammanagement, name='teammanagement'),
     path('profile/', views.profile, name='profile'),
+    path('welcome/', views.welcome, name='welcome'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

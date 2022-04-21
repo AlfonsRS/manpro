@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
 	User Management
@@ -8,34 +8,43 @@
 
 
 {% block content %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Role</th>
-        </tr>
-        <tr>
-            <td>Michael Wong</td>
-            <td>Project Manager</td>
-        </tr>
-        <tr>
-            <td>Dharma Yuda</td>
-            <td>Secretary</td>   
-        </tr>
-		<tr>
-			<td>Reynald</td>
-            <td>Database and UI/UX</td>
-		</tr>
-		<tr>
-			<td>Vicenzo</td>
-            <td>Database and UI/UX</td>
-		</tr>
-		<tr>
-			<td>Freonanda Purnomo</td>
-            <td>Programmer</td>
-		</tr>
-		<tr>
-			<td>Alfons</td>
-            <td>Programmer</td>
-		</tr>
+    <table class="tableum">
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 60%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        <tbody>
+            <tr></tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="tableum">
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 60%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>
+                    <table>
+                        <tr>
+                            <td rowspan="0"><img src="{% static 'images/profileum.png' %}" style="padding-right: 24px;"></td>
+                            <td><a style="color: black; font-size: 20pt; font-weight: bold;">Giro Sakalam</a></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"><a style="color: rgb(87, 201, 250); font-size: 12pt;">On 24.05.2019</a></td>
+                        </tr>
+                    </table>
+                </th>
+                <th><div id="umsquare" style="background-color: red;">SUPERADMIN</div></th>
+                <th><a href=""><img src="{% static 'images/vector.png' %}" style="float: right;"></a></th>
+            </tr>
+        </tbody>
     </table>
 {% endblock %}

@@ -34,7 +34,9 @@
 	
 	<div id="tm_square2">
 		<div id="tm_square3">
-			<a href=""><img src="{% static 'images/trash_tm.png' %}" style="float: right;"></a>
+			{% if request.user.username == "admin" %}
+				<a href=""><img src="{% static 'images/trash_tm.png' %}" style="float: right;"></a>
+			{% endif %}
 			<table>
 				<tr>
 					<td rowspan="0"><img src="{% static 'images/employee.png' %}" style="padding-right: 24px;"></td>
