@@ -146,6 +146,45 @@
 		}
 	}
 
+	function satu() {
+		if (document.getElementById("projecttasks").style.display === "none"){
+			document.getElementById("projecttasks").style.display="block";
+			document.getElementById("rawmaterial").style.display="none";
+			document.getElementById("ganttchart").style.display="none";
+			document.getElementById("one").style.textDecoration="underline";
+			document.getElementById("two").style.textDecoration="none";
+			document.getElementById("three").style.textDecoration="none";
+			document.getElementById("newtaskbtn").style.display="block";
+			document.getElementById("newmaterialbtn").style.display="none";
+			document.getElementById("excelbtn").style.display="none";
+		}
+	}
+	function dua() {
+		if (document.getElementById("rawmaterial").style.display === "none"){
+			document.getElementById("rawmaterial").style.display="block";
+			document.getElementById("projecttasks").style.display="none";
+			document.getElementById("ganttchart").style.display="none";
+			document.getElementById("one").style.textDecoration="none";
+			document.getElementById("two").style.textDecoration="underline";
+			document.getElementById("three").style.textDecoration="none";
+			document.getElementById("newtaskbtn").style.display="none";
+			document.getElementById("newmaterialbtn").style.display="block";
+			document.getElementById("excelbtn").style.display="none";
+		}
+	}
+	function tiga() {
+		if (document.getElementById("ganttchart").style.display === "none"){
+			document.getElementById("ganttchart").style.display="block";
+			document.getElementById("rawmaterial").style.display="none";
+			document.getElementById("projecttasks").style.display="none";
+			document.getElementById("one").style.textDecoration="none";
+			document.getElementById("two").style.textDecoration="none";
+			document.getElementById("three").style.textDecoration="underline";
+			document.getElementById("newtaskbtn").style.display="none";
+			document.getElementById("newmaterialbtn").style.display="none";
+			document.getElementById("excelbtn").style.display="block";
+		}
+	}
 	</script>
 </body>
 </html>

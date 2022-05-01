@@ -1,17 +1,117 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
 	{{blog.title}}
 {% endblock %}
 
 
-
 {% block content %}
-	<p>{{blog.desc}}</p>
-	<p>{{blog.created_at}}</p>
-	<hr>
-	<h2>Komentar</h2>
+
+	<div id="projectsquaremanage1">
+		<a href="{% url 'blogs:index' %}" style="text-decoration: none; float: left;"><img src="{% static 'images/back.png' %}"></a>
+		<h1 style="text-align: center; font-size: 40pt;"> {{blog.title}}</h1>
+		
+		<p>Project Description :</p>
+		<table class="tableproject">
+				
+			<tr background-color: white;>
+				<th rowspan="4">
+					<div id="projectsquaremanage2">
+						{{blog.desc}}
+					</div>
+				</th>
+				<th>Timeline :</th>
+				<th>Project Size :</th>
+			</tr>
+			<tr>
+				<th><div id="projectsquare3" style="background-color: red;">27 Feb - 04 Mar 2022</div></th>
+				<th><div id="projectsquare3" style="background-color: green;">Low</div></th>
+			</tr>
+			<tr>
+				<th>Project Leader :</th>
+				<th>Last Updated :</th>
+			</tr>
+			<tr>
+				<th><div id="projectsquare3" style="background-color: blue;">John Doe</div></th>
+				<th><div id="projectsquare3" style="background-color: darkorange;">2 days ago</div></th>
+			</tr>
+		</table>
+		<br>
+		<div class="navbarproject">
+			<a id = "one" style="text-decoration: underline;" onclick="satu()">
+				Project Tasks
+			</a>
+			<a id = "two" onclick="dua()"> 
+				Raw Material
+			</a>
+			<a id = "three" onclick="tiga()"> 
+				Gantt Chart 
+			</a>
+			<button class="button3table" id="newtaskbtn" onclick="addnewtask()" style="display: block;">Add new task</button>
+			<button class="button3table" id="newmaterialbtn" onclick="addnewmaterial()" style="display: none;">Add new material</button>
+			<button class="button3table" id="excelbtn" onclick="converttoexcel()" style="display: none;">Convert to Excel</button>
+		</div>
+		<br>
+		<div id="projecttasks" style="display: block;">
+			<table class="tableprojectsatuan">
+				<tr>
+				  <th style="text-align: center;">Task name</th>
+				  <th style="text-align: center;">Timeline</th>
+				  <th style="text-align: center;">Status</th>
+				  <th style="text-align: center;">Size</th>
+				  <th style="text-align: center;">Updated at</th>
+				  <th style="text-align: center;">Updated by</th>
+				</tr>
+				{% for comment in blog.comment_set.all %}
+					<tr>
+						<td>{{comment.desc}}</td>
+						<td><div id="projectsquare3" style="background-color: red; text-align: center;">27 Feb - 04 Mar 2022</div></td>
+						<td><div id="projectsquare3" style="background-color: green; text-align: center;">Done</div></td>
+						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">XL</div></td>
+						<td><div id="projectsquare3" style="background-color: red; text-align: center;">{{comment.created_at}}</div></td>
+						<td><div id="projectsquare3" style="background-color: blue; text-align: center;">{{comment.user}}</div></td>
+						{% if request.user.id == comment.user.id %}
+							<td>
+								<a href="{% url 'blogs:comment-edit' comment.id %}">Edit</a> 
+							</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			  </table>
+		</div>
+		<div id="rawmaterial" style="display: none;">
+			<table class="tableprojectsatuan">
+				<tr>
+				  <th style="text-align: center;">Task name</th>
+				  <th style="text-align: center;">Timeline</th>
+				  <th style="text-align: center;">Status</th>
+				  <th style="text-align: center;">Size</th>
+				  <th style="text-align: center;">Updated at</th>
+				  <th style="text-align: center;">Updated by</th>
+				</tr>
+				{% for comment in blog.comment_set.all %}
+					<tr>
+						<td>{{comment.desc}}</td>
+						<td><div id="projectsquare3" style="background-color: red; text-align: center;">27 Feb - 04 Mar 2022</div></td>
+						<td><div id="projectsquare3" style="background-color: green; text-align: center;">OnGoing</div></td>
+						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">XL</div></td>
+						<td><div id="projectsquare3" style="background-color: red; text-align: center;">{{comment.created_at}}</div></td>
+						<td><div id="projectsquare3" style="background-color: blue; text-align: center;">{{comment.user}}</div></td>
+						{% if request.user.id == comment.user.id %}
+							<td>
+								<a href="{% url 'blogs:comment-edit' comment.id %}">Edit</a> 
+							</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			  </table>
+		</div>
+		<div id="ganttchart" style="display: none;">
+			
+		</div>
+	</div>
+
 	{% if user.is_authenticated %}
 		<form action="{% url 'blogs:comment' blog.id %}" method="post">
 			{% csrf_token %}
@@ -21,17 +121,6 @@
 	{% else %}
 		<b><p>Kamu harus login untuk komentar </p> </b>
 	{% endif %}
-	{% for comment in blog.comment_set.all %}
-		<p> {{comment.desc}}
-
-		{% if request.user.id == comment.user.id %}
-			<a href="{% url 'blogs:comment-edit' comment.id %}">Edit</a> 
-		{% endif %}
-	</p>	
-		<p>By {{comment.user}}</p>
-	{% endfor %}
-	
-
 
 {% endblock %}
 
