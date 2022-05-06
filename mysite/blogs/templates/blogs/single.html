@@ -58,24 +58,19 @@
 				<tr>
 				  <th style="text-align: center;">Task name</th>
 				  <th style="text-align: center;">Timeline</th>
-				  <th style="text-align: center;">Status</th>
-				  <th style="text-align: center;">Size</th>
-				  <th style="text-align: center;">Updated at</th>
-				  <th style="text-align: center;">Updated by</th>
+				  <th style="text-align: center;">Priority</th>
+				  <th style="text-align: center;">Overall Status</th>
+				  <th style="text-align: center;">Last Updated at</th>
+				  <th style="text-align: center;">Details</th>
 				</tr>
 				{% for comment in blog.comment_set.all %}
 					<tr>
 						<td>{{comment.desc}}</td>
 						<td><div id="projectsquare3" style="background-color: red; text-align: center;">27 Feb - 04 Mar 2022</div></td>
-						<td><div id="projectsquare3" style="background-color: green; text-align: center;">Done</div></td>
-						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">XL</div></td>
+						<td><div id="projectsquare3" style="background-color: green; text-align: center;">High</div></td>
+						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">Done</div></td>
 						<td><div id="projectsquare3" style="background-color: red; text-align: center;">{{comment.created_at}}</div></td>
-						<td><div id="projectsquare3" style="background-color: blue; text-align: center;">{{comment.user}}</div></td>
-						{% if request.user.id == comment.user.id %}
-							<td>
-								<a href="{% url 'blogs:comment-edit' comment.id %}">Edit</a> 
-							</td>
-						{% endif %}
+						<td><a href="{% url 'blogs:comment-edit' comment.id %}"><img src="{% static 'images/panahbawah.png' %}" style="display: block; margin: 0 auto;"></a></td>
 					</tr>
 				{% endfor %}
 			  </table>
@@ -86,23 +81,17 @@
 				  <th style="text-align: center;">Task name</th>
 				  <th style="text-align: center;">Timeline</th>
 				  <th style="text-align: center;">Status</th>
-				  <th style="text-align: center;">Size</th>
+				  <th style="text-align: center;">Priority</th>
 				  <th style="text-align: center;">Updated at</th>
-				  <th style="text-align: center;">Updated by</th>
 				</tr>
 				{% for comment in blog.comment_set.all %}
 					<tr>
 						<td>{{comment.desc}}</td>
 						<td><div id="projectsquare3" style="background-color: red; text-align: center;">27 Feb - 04 Mar 2022</div></td>
 						<td><div id="projectsquare3" style="background-color: green; text-align: center;">OnGoing</div></td>
-						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">XL</div></td>
+						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">High</div></td>
 						<td><div id="projectsquare3" style="background-color: red; text-align: center;">{{comment.created_at}}</div></td>
-						<td><div id="projectsquare3" style="background-color: blue; text-align: center;">{{comment.user}}</div></td>
-						{% if request.user.id == comment.user.id %}
-							<td>
-								<a href="{% url 'blogs:comment-edit' comment.id %}">Edit</a> 
-							</td>
-						{% endif %}
+						<td><a href="{% url 'blogs:comment-edit' comment.id %}">Details</a></td>
 					</tr>
 				{% endfor %}
 			  </table>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
 	Edit Komentar
@@ -13,6 +13,23 @@
 		{{ form.as_p }}
 		<input type="submit" value="Edit Komentar">
 	</form>
+
+	<div id="projectsquaremanage1">
+		<table class="tableprojectsatuansubtask">
+			<tr>
+			<th style="text-align: center;">Subtask name</th>
+			<th style="text-align: center;">Timeline</th>
+			<th style="text-align: center;">Status</th>
+			<th style="text-align: center;">Last Updated</th>
+			</tr>
+			<tr>
+				<td>Subtask 1</td>
+				<td>27 Feb - 04 Mar 2022</td>
+				<td>Done</td>
+				<td>27 Maret 2022</td>
+			</tr>
+		</table>
+	  </div>
 	
 {% endblock %}
 
