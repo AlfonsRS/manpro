@@ -8,9 +8,7 @@
 
 
 {% block content %}
-	<div id="addproject">
-		<a href=""><img src="{% static 'images/addproject.png' %}"></a>
-	</div>
+
 	{% for blog in blogs%}
 		<div id="projectsquare">
 			<h1 style="text-align: center;"> {{blog.title}}	</h1>
@@ -27,7 +25,7 @@
 				</tr>
 				<tr>
 					<th><div id="projectsquare3" style="background-color: red;">27 Feb - 04 Mar 2022</div></th>
-					<th><div id="projectsquare3" style="background-color: green;">Low</div></th>
+					<th><div id="projectsquare3" style="background-color: green;">Medium</div></th>
 				</tr>
 				<tr>
 					<th>Project Leader :</th>
@@ -43,5 +41,76 @@
 			<a href="{% url 'blogs:single' id=blog.id %}" style="text-decoration: none;"><button class="buttonsproject" >Manage</button></a>
 		</div>
 	{% endfor %}
+  
+	<div id="addproject">
+		<input type="image" src="{% static 'images/addproject.png' %}"data-toggle="modal" data-target="#exampleModal"/>
+	</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Add a Project</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<form>
+				<div class="form-group">
+					<label for="project-name" class="col-form-label">Project Name: </label>
+					<input type="text" class="form-control" id="project-name">
+				</div>
+				<div class="form-group">
+					<label for="short-desc" class="col-form-label">Short Description: </label>
+					<input type="text" class="form-control" id="short-desc">
+				</div>
+				<div class="form-group">
+					<label for="full-desc" class="col-form-label">Full Description: </label>
+					<textarea class="form-control" id="full-desc"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="message-text" class="col-form-label">project Size: </label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize1" value="big">
+						<label class="form-check-label" for="radiosize1">
+						Big
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize2" value="medium">
+						<label class="form-check-label" for="radiosize2">
+						Medium
+						</label>
+					</div>
+					<div class="form-check disabled">
+						<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize3" value="small">
+						<label class="form-check-label" for="radiosize3">
+						Small
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<h5>Project Timeline: </h5>
+					<label for="startdate" class="col-form-label">Start Date: </label>
+ 					<input type="date" id="startdate" name="startdate">
+					 <br>
+					<label for="enddate" class="col-form-label">End Date: </label>
+ 					<input type="date" id="enddate" name="enddate">
+				</div>
+				<div class="form-group">
+					<label for="project-leader" class="col-form-label">Project Leader: </label>
+					<input type="text" class="form-control" id="project-leader">
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		  <button type="button" class="btn btn-primary">Add New Project</button>
+		</div>
+	  </div>
+	</div>
+  </div>
 {% endblock %}
 

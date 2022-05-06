@@ -16,13 +16,13 @@
 {% block content %}
 	{% if user.is_authenticated %}
 		<div id="homesquare">
-			<div id="time" style="text-align: center; font-size: 48pt; padding-top: 110px;"></div>
+			<div id="time" style="text-align: center; font-size: 48pt;"></div>
 			<br>
 			<div id="day" style="text-align: center; font-size: 24pt;"></div>
 			<div id="date" style="text-align: center; font-size: 24pt;"></div>
 		</div>
 		<div id="homesquare">
-			<h1 style="text-align: center; font-size: 32pt; padding-top: 40px;">Current Team</h1>
+			<h1 style="text-align: center; font-size: 32pt;">Current Team</h1>
 			<ol style="font-size: 24pt; margin-left: 40px;">
 				<li>John Doe</li>
 				<li>Jane Doe</li>
@@ -31,11 +31,11 @@
 			</ol>
 		</div>
 		<div id="homesquare">
-			<h1 style="text-align: center; font-size: 40pt; padding-top: 40px;">You have XX new notifications</h1>
+			<h1 style="text-align: center; font-size: 40pt;">You have XX new notifications</h1>
 			<a href="{% url 'notif' %}" style="text-decoration: none;"><button class="buttons">Go To Notifications</button></a>
 		</div>
 		<div id="homesquare">
-			<h1 style="text-align: center; font-size: 40pt; padding-top: 40px;">You have XX incoming projects</h1>
+			<h1 style="text-align: center; font-size: 40pt;">You have XX incoming projects</h1>
 			<a href="{% url 'blogs:index' %}" style="text-decoration: none;"><button class="buttons" >Go To Projects</button></a>
 		</div>
 	{% else %}

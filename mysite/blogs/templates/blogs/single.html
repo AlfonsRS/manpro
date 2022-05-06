@@ -48,8 +48,8 @@
 			<a id = "three" onclick="tiga()"> 
 				Gantt Chart 
 			</a>
-			<button class="button3table" id="newtaskbtn" onclick="addnewtask()" style="display: block;">Add new task</button>
-			<button class="button3table" id="newmaterialbtn" onclick="addnewmaterial()" style="display: none;">Add new material</button>
+			<button class="button3table" id="newtaskbtn" onclick="addnewtask()" style="display: block;" data-toggle="modal" data-target="#newtask">Add new task</button>
+			<button class="button3table" id="newmaterialbtn" onclick="addnewmaterial()" style="display: none;" data-toggle="modal" data-target="#newmaterial">Add new material</button>
 			<button class="button3table" id="excelbtn" onclick="converttoexcel()" style="display: none;">Convert to Excel</button>
 		</div>
 		<br>
@@ -78,20 +78,17 @@
 		<div id="rawmaterial" style="display: none;">
 			<table class="tableprojectsatuan">
 				<tr>
-				  <th style="text-align: center;">Task name</th>
-				  <th style="text-align: center;">Timeline</th>
-				  <th style="text-align: center;">Status</th>
+				  <th style="text-align: center;">Material name</th>
 				  <th style="text-align: center;">Priority</th>
-				  <th style="text-align: center;">Updated at</th>
+				  <th style="text-align: center;">Added at</th>
+				  <th style="text-align: center;">Added by</th>
 				</tr>
 				{% for comment in blog.comment_set.all %}
 					<tr>
 						<td>{{comment.desc}}</td>
-						<td><div id="projectsquare3" style="background-color: red; text-align: center;">27 Feb - 04 Mar 2022</div></td>
-						<td><div id="projectsquare3" style="background-color: green; text-align: center;">OnGoing</div></td>
 						<td><div id="projectsquare3" style="background-color: darkorange; text-align: center;">High</div></td>
 						<td><div id="projectsquare3" style="background-color: red; text-align: center;">{{comment.created_at}}</div></td>
-						<td><a href="{% url 'blogs:comment-edit' comment.id %}">Details</a></td>
+						<td><div id="projectsquare3" style="background-color: red; text-align: center;">{{comment.user}}</div></td>
 					</tr>
 				{% endfor %}
 			  </table>
@@ -101,6 +98,107 @@
 		</div>
 	</div>
 
+	  <!-- Modal Task-->
+	  <div class="modal fade" id="newtask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Add a Task</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="task-name" class="col-form-label">Task Name: </label>
+						<input type="text" class="form-control" id="task-name">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">project Priority: </label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize1" value="high">
+							<label class="form-check-label" for="radiosize1">
+							High
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize2" value="medium">
+							<label class="form-check-label" for="radiosize2">
+							Medium
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize3" value="low">
+							<label class="form-check-label" for="radiosize3">
+							Low
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<h5>Project Timeline: </h5>
+						<label for="startdate" class="col-form-label">Start Date: </label>
+						 <input type="date" id="startdate" name="startdate">
+						 <br>
+						<label for="enddate" class="col-form-label">End Date: </label>
+						 <input type="date" id="enddate" name="enddate">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			  <button type="button" class="btn btn-primary">Add New Task</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	   <!-- Modal Material-->
+	   <div class="modal fade" id="newmaterial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Add a Material</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="task-name" class="col-form-label">Material Name: </label>
+						<input type="text" class="form-control" id="task-name">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Material Priority: </label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize1" value="high">
+							<label class="form-check-label" for="radiosize1">
+							High
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize2" value="medium">
+							<label class="form-check-label" for="radiosize2">
+							Medium
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="radiosize3" value="low">
+							<label class="form-check-label" for="radiosize3">
+							Low
+							</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			  <button type="button" class="btn btn-primary">Add New Material</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 	{% if user.is_authenticated %}
 		<form action="{% url 'blogs:comment' blog.id %}" method="post">
 			{% csrf_token %}

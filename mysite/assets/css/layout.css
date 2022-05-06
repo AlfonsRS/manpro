@@ -1,5 +1,4 @@
 body{
-	font-family: sans-serif;
 	background: rgb(232, 232, 232);
 	width: 100%;
 	margin: auto;
@@ -70,7 +69,9 @@ body{
 	overflow: hidden;
 	background-color: white;
 }
-  
+.topnav h1 {
+	padding-top: 10px;
+}
   /* .allcontent {
 	padding: 20px;
   } */
@@ -86,7 +87,8 @@ body{
 	margin-top: 20px;
 	margin-left: 20px;
 	width: 400px;
-	height: 400px;  
+	height: 400px;   
+	padding-top: 60px; 
 }
 
 .buttons {
@@ -230,7 +232,7 @@ table.tabletm td,table.tabletm th {
 	margin: auto;
 	margin-top: 40px;
 	width: 95%;
-	height: 200px;  
+	height: auto;  
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 	padding: 20px;
